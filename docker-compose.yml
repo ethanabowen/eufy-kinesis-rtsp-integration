@@ -1,11 +1,16 @@
 version: "3.9"
 services:
-  web:
+  nursery:
     image: eufy_kinesis_rtsp:v1
     ports:
       - "5000:5000"
-    environment:
-      - ROOM_NAME
     env_file:
-      - ${ROOM_NAME}.env
+      - nursery.env
+    command: [ "python3", "camera.py" ]
+  living_room:
+    image: eufy_kinesis_rtsp:v1
+    ports:
+      - "5001:5001"
+    env_file:
+      - living_room.env
     command: [ "python3", "camera.py" ]
