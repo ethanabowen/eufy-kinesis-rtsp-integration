@@ -1,7 +1,4 @@
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 CAMERA_USER = os.getenv('CAMERA_USER')
 CAMERA_PASSWORD = os.getenv('CAMERA_PASSWORD')
@@ -43,6 +40,6 @@ kvs_sink_command = build_kvs_sink_command(
 
 # build 'gst-launch-1.0 rtspsrc' command with ENV
 cmd = build_rtsp_command(rtsp_url, LATENCY, video_settings, kvs_sink_command)
-print(cmd)
 
+print('\n\nBuild Command:\n', cmd)
 os.system(cmd)

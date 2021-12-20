@@ -1,0 +1,1 @@
+ROOM_NAME=living_room docker-compose up
