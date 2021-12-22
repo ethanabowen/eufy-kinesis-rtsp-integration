@@ -1,10 +1,25 @@
 # EUFY Kinesis RSTP Integration
 
-**Hypothesis**: Using AWS and open source libraries, I can stream and host my EUFY Camera(s) footage cheaper than Eufy's $3/month rate.
+**Hypothesis**:
 
-**Process**: Using AWS as a NAS (Network Attached Storage) proxy, I discovered a serverless Kinesis solution. By using gstreamer, an open-source video processing library, I was able to seemlessly take input of a EUFY camera's feed (via Real Time Streaming Protocol) and send it in real-time to AWS.
+Using AWS and open source libraries, I can stream and host my EUFY Camera(s) footage cheaper than Eufy's $3/month rate.
 
-**Outcome**: I did it for cheaper and own my camera data!
+**Process**:
+
+Using AWS as a NAS (Network Attached Storage) proxy, I discovered a serverless Kinesis solution. 
+By using gstreamer, an open-source video processing library, I was able to take input of a EUFY camera's feed (via Real Time Streaming Protocol) and send it in real-time to AWS.
+
+**Outcome**:
+
+The full implementation (including website with domain) was cheaper per camera per month that what Eufy costs.
+I OWN my camera data and have a custom access-control process that ensures the camera data visibility is limited to who I want to share it with.
+
+**Future**:
+
+* Update website to have a filter based on camera and events in the video feed, don't do live only.
+* Setup access control to specific cameras and for limited duration.
+* Investigate setting this up with an IoT mindset. 
+
 
 ## Tech Stack (processing):
 * Docker - containerized deployment for scability across cameras
