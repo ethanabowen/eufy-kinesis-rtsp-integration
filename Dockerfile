@@ -42,5 +42,5 @@ ENV GST_PLUGIN_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/build
 #RUN git clone https://github.com/ethanabowen/eufy-kinesis-rtsp-integration.git
 #WORKDIR /opt/eufy-kinesis-rtsp-integration/
 
-ADD . /eufy-kinesis-rtsp-integration
-WORKDIR /eufy-kinesis-rtsp-integration
+ADD ./camera.py /opt/eufy-kinesis-rtsp-integration/
+WORKDIR /opt/eufy-kinesis-rtsp-integration/

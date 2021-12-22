@@ -14,3 +14,10 @@ services:
     env_file:
       - living_room.env
     command: [ "python3", "camera.py" ]
+  #driveway:
+  #  image: eufy_kinesis_rtsp:v1
+  #  ports:
+  #    - "5002:5002"
+  #  env_file:
+  #    - driveway.env
+  #  command: [ "python3", "camera.py" ]

@@ -1,4 +1,6 @@
 import os
+import sys
+import subprocess
 
 CAMERA_USER = os.getenv('CAMERA_USER')
 CAMERA_PASSWORD = os.getenv('CAMERA_PASSWORD')
@@ -41,5 +43,10 @@ kvs_sink_command = build_kvs_sink_command(
 # build 'gst-launch-1.0 rtspsrc' command with ENV
 cmd = build_rtsp_command(rtsp_url, LATENCY, video_settings, kvs_sink_command)
 
-print('\n\nBuild Command:\n', cmd)
-os.system(cmd)
+# ./kvs_log_configuration
+while(True):
+    print('\n\n###### While Build Command: ######\n', cmd)
+    os.system(cmd)
+    #subprocess.run(cmd, shell=True, stdin=sys.stdin, stdout=subprocess.STDOUT, stderr=sys.stderr).returncode
+
+    # CloudWatch alarm when failure!
