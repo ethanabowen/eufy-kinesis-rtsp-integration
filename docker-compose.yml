@@ -3,7 +3,7 @@ services:
   nursery:
     image: eufy_kinesis_rtsp:v1
     ports:
-      - "5000:5000"
+      - "5002:5002"
     env_file:
       - nursery.env
     command: [ "python3", "camera.py" ]
@@ -14,10 +14,10 @@ services:
     env_file:
       - living_room.env
     command: [ "python3", "camera.py" ]
-  #driveway:
-  #  image: eufy_kinesis_rtsp:v1
-  #  ports:
-  #    - "5002:5002"
-  #  env_file:
-  #    - driveway.env
-  #  command: [ "python3", "camera.py" ]
+  driveway:
+    image: eufy_kinesis_rtsp:v1
+    ports:
+      - "5003:5003"
+    env_file:
+      - driveway.env
+    command: [ "python3", "camera.py" ]

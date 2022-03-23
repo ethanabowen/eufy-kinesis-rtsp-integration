@@ -32,6 +32,9 @@ def build_rtsp_command(rtspUrl, latency, video_settings, kvs_sink_command):
 
 
 def build_rtsp_url(user, password, ip):
+    if(user is None and password is None):
+        return "rtsp://{ip}/live0".format(user=user, password=password, ip=ip)
+
     return "rtsp://{user}:{password}@{ip}/live0".format(user=user, password=password, ip=ip)
 
 
