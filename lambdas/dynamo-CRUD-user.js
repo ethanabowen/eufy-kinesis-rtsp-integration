@@ -50,7 +50,7 @@ exports.handler = async function userEndpoints(event, context, callback) {
   return response;
 };
 
-//COPIED FROM INTERNET - SCANS BASED ON PARAMS TILL ALL KEYS ARE EVALUATED
+//COPIED FROM INTERNET - SCANS BASED ON PARAMS TILL ALL KEYS ARE EVALUATED - NOT BEST PRACTICE
 const scanAll = async (params) => {
   let lastEvaluatedKey = 'dummy'; // string must not be empty
   const itemsAll = [];

@@ -1,6 +1,4 @@
 import os
-import sys
-import subprocess
 
 CAMERA_USER = os.getenv('CAMERA_USER')
 CAMERA_PASSWORD = os.getenv('CAMERA_PASSWORD')
@@ -14,8 +12,6 @@ AWS_REGION = os.getenv('AWS_REGION')
 
 
 ### Command Builder Functions ###
-
-
 def build_kvs_sink_command(stream_name, access_key, secret_key, region):
     return "kvssink stream-name='{stream_name}' storage-size=512 access-key='{access_key}' secret-key='{secret_key}' aws-region='{region}'" \
         .format(stream_name=stream_name, access_key=access_key, secret_key=secret_key, region=region)
@@ -32,12 +28,14 @@ def build_rtsp_command(rtspUrl, latency, video_settings, kvs_sink_command):
 
 
 def build_rtsp_url(user, password, ip):
+    # some cameras do not have a set-able user/pass
     if(user is None and password is None):
         return "rtsp://{ip}/live0".format(user=user, password=password, ip=ip)
 
     return "rtsp://{user}:{password}@{ip}/live0".format(user=user, password=password, ip=ip)
 
 
+### Main ###
 video_settings = build_video_settings(FRAME_RATE)
 rtsp_url = build_rtsp_url(CAMERA_USER, CAMERA_PASSWORD, CAMERA_IP)
 kvs_sink_command = build_kvs_sink_command(
@@ -48,8 +46,7 @@ cmd = build_rtsp_command(rtsp_url, LATENCY, video_settings, kvs_sink_command)
 
 # ./kvs_log_configuration
 while(True):
-    print('\n\n###### While Build Command: ######\n', cmd)
+    print('\n\nExecuting command: ', cmd, '\n\n')
     os.system(cmd)
-    #subprocess.run(cmd, shell=True, stdin=sys.stdin, stdout=subprocess.STDOUT, stderr=sys.stderr).returncode
 
-    # CloudWatch alarm when failure!
+    # TODO: CloudWatch alarm when failure!

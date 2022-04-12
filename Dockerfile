@@ -1,11 +1,12 @@
+# ===== Download OS ===== #
 FROM ubuntu:18.04
 
+# ===== Download Dependences ===== #
 RUN apt-get upgrade && \
     apt-get update && \
     apt-get install -y  \
     byacc \
     cmake \
-    #curl \
     g++ \
     git \
     gstreamer1.0-plugins-base-apps \
@@ -14,14 +15,8 @@ RUN apt-get upgrade && \
     gstreamer1.0-plugins-ugly \
     libgstreamer1.0-dev \
     libgstreamer-plugins-base1.0-dev \
-    #m4 \
-    #maven \
-    #openjdk-8-jdk \
-    #python2.7 \
     python3 \
     pkg-config \
-    #vim \
-    #wget  \
     xz-utils && \
     rm -rf /var/lib/apt/lists/*
 
@@ -38,9 +33,5 @@ ENV GST_PLUGIN_PATH=/opt/amazon-kinesis-video-streams-producer-sdk-cpp/build
 
 
 # ===== Setup Python Camera Repo ===== #
-#WORKDIR /opt/
-#RUN git clone https://github.com/ethanabowen/eufy-kinesis-rtsp-integration.git
-#WORKDIR /opt/eufy-kinesis-rtsp-integration/
-
 ADD ./camera.py /opt/eufy-kinesis-rtsp-integration/
 WORKDIR /opt/eufy-kinesis-rtsp-integration/
