@@ -15,7 +15,7 @@ By using gstreamer, an open-source video processing library, I was able to take 
 
 The full implementation (including website with domain) was cheaper per camera per month than what Eufy costs.
 
-Cost per camera per month (bytes in/storage): **~$1.50**
+Cost per camera per month (bytes in/storage): :moneybag: **~$1.50** :moneybag:
 
 Pros: :white_check_mark:
 
