@@ -17,20 +17,20 @@ The full implementation (including website with domain) was cheaper per camera p
 
 Cost per camera per month (bytes in/storage): **~$1.50**
 
-Pros:
+Pros: :white_check_mark:
 
 - Ownership of camera data
 - Custom retention policy
 - Cheaper
 
-Cons:
+Cons: :x:
 
 - May not be cheaper at scale
 - Continuous streaming is more expensive than event streaming
 
 ---
 
-:rocket: **Future**:
+**Future** :rocket:
 
 - Test lower framerate impact on quality of experience and cost savings
 - Add event recording and play backonly.
@@ -43,7 +43,7 @@ Cons:
 
 ---
 
-## Tech Stack (processing):
+# Tech Stack
 
 - Docker - containerized deployment for scability across cameras
 - Python - integration video library with camera feed
